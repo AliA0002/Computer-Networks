@@ -1,0 +1,8 @@
+-I
+common
+-g
+-Wall
+-fno-builtin
+-std=c++11
+-Wno-deprecated-declarations
+-Wpedantic

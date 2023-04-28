@@ -1,0 +1,11 @@
+*.o
+*.cpp.md
+*.cpp.pdf
+*.gc*
+allfiles.pdf
+*.tar.gz
+.vscode
+wReceiver
+wSender
+log*
+*.out

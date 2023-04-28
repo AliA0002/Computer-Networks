@@ -1,0 +1,28 @@
+# TODO
+
+## Requirements
+In summary, your solution:
+
+1. [ ] MUST correctly generate ARP request packets.
+2. [x] MUST correctly respond to ARP request packets.
+    * [ ] It MUST only respond if appropriate.
+    * [x] It MUST respond from the proper interface.
+    * [x] Responses MUST be unicast.
+3. [ ] MUST correctly handle ARP response packets by populating the ARP cache.
+4. [ ] MUST generate the correct ICMP messages for these cases:
+    * [x] Receive an ICMP echo request.
+    * [ ] A received packet's destination has no forwarding table entry.
+    * [ ] The router cannot determine the link layer address of a packet's next hop. "cannot determine" means there is no ARP entry and 7 consecutive ARP requests fail.
+    * [x] A UDP or TCP packet is sent to one of the router's interfaces. This MUST generate an ICMP port unreachable message.
+    * [ ] A packet's TTL, after being decremented, is 0.
+5. [ ] The router MUST correctly route packets using IPv4 between the Internet and the application servers.
+    * [ ] It MAY assume no IP options are used.
+    * [ ] It MUST correctly validate and generate checksums.
+    * [ ] It MUST decrement the TTL.
+    * [ ] It MUST forward packets using the forwarding table, selecting an entry with the longest prefix match algorithm.
+    * [ ] Note that an Ethernet frame payload may be larger than the encapsulated IP packet. That is, there may be some padding bytes after the IP packet. This can occur when an Ethernet interface tries to align frames on 4-byte boundaries.
+6. [ ] MUST correctly handle `traceroutes` through it (where it is not the end host) and to it (where it is the end host).
+7. [ ] MUST maintain an ARP cache whose entries are invalidated after a timeout period (timeouts should be on the order of 15 seconds).
+8. [ ] MUST NOT drop a packet unless there is no matching forwarding table entry, the router cannot determine the next hop link address, or cannot parse the packet.
+9. [ ] MUST queue all packets waiting for outstanding ARP replies.
+10. [ ] SHOULD drop a packet waiting for an ARP reply after 7 failed requests for a reply since receiving the packet.
